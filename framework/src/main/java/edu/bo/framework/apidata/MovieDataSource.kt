@@ -11,5 +11,9 @@ class MovieDataSource(val apiRest: RetrofitBuilder, val apiKey: String): IRemote
             }
         return response
     }
+
+    override suspend fun addNewMovie(movie: Movie) {
+        TODO("Not yet implemented")
+    }
 }
 
