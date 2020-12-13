@@ -22,8 +22,8 @@ class DetailActivity : AppCompatActivity() {
 
         //DATA UPDATE
         actionBar.setTitle(title)
-        Picasso.get().load(imgURL).into(imgDetail)
-        txtNameDetail.text = title
+        Picasso.get().load(imgURL).into(imgViewPosterDetail)
+        txtTitleMovieDetail.text = title
     }
 
     override fun onSupportNavigateUp(): Boolean {

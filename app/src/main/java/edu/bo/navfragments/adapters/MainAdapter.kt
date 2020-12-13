@@ -9,12 +9,12 @@ import com.squareup.picasso.Picasso
 import edu.bo.domain.Movie
 import edu.bo.navfragments.R
 import edu.bo.navfragments.activities.DetailActivity
-import kotlinx.android.synthetic.main.card_movie.view.*
+import kotlinx.android.synthetic.main.row_movie.view.*
 
 class MainAdapter(val list: List<Movie>): RecyclerView.Adapter<MainAdapter.MovieHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieHolder {
         val viewInflater = LayoutInflater.from(parent.context)
-        return MovieHolder(viewInflater.inflate(R.layout.card_movie, parent,false))
+        return MovieHolder(viewInflater.inflate(R.layout.row_movie, parent,false))
     }
 
     override fun onBindViewHolder(holder: MovieHolder, position: Int) {
@@ -26,10 +26,10 @@ class MainAdapter(val list: List<Movie>): RecyclerView.Adapter<MainAdapter.Movie
     class MovieHolder(val view: View): RecyclerView.ViewHolder(view) {
 
         fun render(movie: Movie){
-            view.card_title_movie.text = movie.title
+            view.txtTitleMovie.text = movie.title
 
             //USE CASE MOVIE-DATA-SOURCE
-            Picasso.get().load("https://image.tmdb.org/t/p/w185/${movie.posterPath}").into(view.card_img_movie)
+            Picasso.get().load("https://image.tmdb.org/t/p/w185/${movie.posterPath}").into(view.imgViewPoster)
             //USE CASE MOVIE-DATA-LOCAL
             //Picasso.get().load(movie.posterPath).into(view.card_img_movie)
 

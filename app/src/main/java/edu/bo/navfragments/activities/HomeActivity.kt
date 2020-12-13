@@ -13,14 +13,14 @@ import edu.bo.navfragments.adapters.MainAdapter
 import edu.bo.navfragments.viewmodels.MainViewModel
 import edu.bo.navfragments.R
 import edu.bo.usescases.GetPopularMovies
-import kotlinx.android.synthetic.main.activity_list.*
+import kotlinx.android.synthetic.main.activity_home.*
 
-class ListActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
     lateinit var mainViewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_list)
+        setContentView(R.layout.activity_home)
 
         //LAYOUT
         val layoutManager = LinearLayoutManager(this)
@@ -29,7 +29,6 @@ class ListActivity : AppCompatActivity() {
 
         //USE CASE
         val usesCases = GetPopularMovies(MovieRepository(MovieDataSource(RetrofitBuilder, getString(R.string.api_key))))
-        val usesCases2 = GetPopularMovies(MovieRepository(MovieDataLocal()))
         mainViewModel = MainViewModel(usesCases)
         mainViewModel.model.observe(this, Observer(::upadateUi))
         mainViewModel.loadMovies()
